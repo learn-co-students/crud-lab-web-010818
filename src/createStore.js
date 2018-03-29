@@ -3,6 +3,8 @@ import { renderer }  from './index.js';
 export default function createStore(reducer) {
   let state;
 
+  console.log(reducer);
+
   function dispatch(action) {
     state = reducer(state, action);
     if (process.env.NODE_ENV !== 'test') {
@@ -19,7 +21,7 @@ export default function createStore(reducer) {
   };
 
   return {
-    dispatch, 
+    dispatch,
     getState
   };
 };
